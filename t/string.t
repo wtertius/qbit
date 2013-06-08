@@ -1,4 +1,4 @@
-use Test::More tests => 13;
+use Test::More tests => 15;
 
 use qbit;
 
@@ -16,6 +16,9 @@ is(
 
 is(format_number(12345678.901200, thousands_sep => ',', decimal_point => '.'),
     '12,345,678.9012', 'Checked basic format_number');
+
+is(format_number(12345678.00901200, thousands_sep => ',', decimal_point => '.'),
+    '12,345,678.009012', 'Checked basic format_number with started zero');
 
 is(format_number(12345678, thousands_sep => ',', decimal_point => '.'),
     '12,345,678', 'Checked basic format_number without frac');
@@ -39,3 +42,6 @@ is(format_number(0.000123456, thousands_sep => ',', decimal_point => '.', precis
 
 is(format_number(9.87165876490036e-05, thousands_sep => ',', decimal_point => '.', precision => 5),
     '0.00001', 'Checked format_number with very small number');
+
+is(format_number('3.12259223215332e-05', thousands_sep => ',', decimal_point => '.', precision => 8),
+    '0.00003123', 'Checked format_number with very small number as string');

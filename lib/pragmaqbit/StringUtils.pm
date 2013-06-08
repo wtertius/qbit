@@ -345,7 +345,9 @@ B<Return value:> string, formatted number.
 sub format_number($%) {
     my ($number, %opts) = @_;
 
-    $number = sprintf('%f', $number) if $number =~ /^(-?[\d.]+)e([+-]\d+)$/;    # Convert exponent notation
+    my $fmt_precision = ($opts{'precision'} || 0) + 1;
+    $number = sprintf("%.${fmt_precision}f", $number)
+      if $number =~ /^(-?[\d.]+)e([+-]\d+)$/;    # Convert exponent notation
 
     setlocale(LC_NUMERIC, "$ENV{'LC_ALL'}.utf8") if defined($ENV{'LC_ALL'});
 
@@ -376,7 +378,7 @@ sub format_number($%) {
             $frac = "$opts{'decimal_point'}$frac" . ('0' x ($opts{'precision'} - length($frac)));
         }
     } else {
-        $frac = $frac == 0 ? '' : "$opts{'decimal_point'}$frac";
+        $frac = $frac == 0 ? '' : "$opts{'decimal_point'}$frac_zero$frac";
     }
 
     if (length($int) > 3) {
