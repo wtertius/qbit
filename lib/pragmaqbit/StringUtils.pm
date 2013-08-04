@@ -257,7 +257,9 @@ sub get_domain($;%) {
     $url =~ s/(^\s+)|(\s+$)//g;
 
     if ($url =~ /^(?:https?:\/\/)?$www((?:$DOMAIN_PART_RE\.)*$DOMAIN_PART_RE)\.?($|\/|:\d+|\?)/) {
-        return $opts{'ascii'} ? idn_to_ascii($1, 'utf-8') : idn_to_unicode($1, 'utf-8');
+        my $res = $opts{'ascii'} ? idn_to_ascii($1, 'utf-8') : idn_to_unicode($1, 'utf-8');
+        utf8::decode($res);
+        return $res;
     } else {
         return;
     }

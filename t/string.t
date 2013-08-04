@@ -1,7 +1,19 @@
-use Test::More tests => 15;
+use Test::More tests => 20;
 
 use qbit;
 
+# getdomain
+is(get_domain('http://www.example.com/test'), 'example.com', 'Check get_domain');
+
+is(get_domain('https://www.example.com/test'), 'example.com', 'Check get_domain with https in URL');
+
+is(get_domain('http://www.example.com/test', www => TRUE), 'www.example.com', 'Check get_domain with saved www');
+
+is(get_domain('example.com', www => TRUE), 'example.com', 'Check get_domain with saved www and no www in URL');
+
+is(get_domain('http://кириллица.рф'), 'кириллица.рф', 'Check get_domain with cyrillic');
+
+# format_number
 is(to_json('test'), '"test"', 'Check string to JSON');
 
 is(to_json(10.5), '10.5', 'Check number to JSON');
