@@ -1,0 +1,15 @@
+libqbit-perl (0.3) raring; urgency=low
+
+  * Start using @QBit Dist::Zilla bundle
+
+  * Fixed cyrillic domains in get_domain() Added some tests for
+    get_domain()
+
+  * Fixed debian package depends
+
+  * Fixed bugs with rotation exponential notation numbers and frac zeros
+
+  * Initial commit
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Sun, 04 Aug 2013 11:29:35 +0400
+
