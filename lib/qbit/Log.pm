@@ -1,10 +1,10 @@
 =head1 Name
 
-pragmaqbit::Log - Functions to logging
+qbit::Log - Functions to logging
 
 =cut
 
-package pragmaqbit::Log;
+package qbit::Log;
 
 use strict;
 use warnings;

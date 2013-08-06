@@ -1,7 +1,7 @@
 
 =head1 Name
 
-pragmaqbit::GetText
+qbit::GetText
 
 =head1 Description
 
@@ -11,7 +11,7 @@ More information on L<GNU.org|http://www.gnu.org/software/gettext/manual/gettext
 
 =cut
 
-package pragmaqbit::GetText;
+package qbit::GetText;
 
 use strict;
 use warnings;

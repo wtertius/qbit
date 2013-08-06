@@ -1,10 +1,10 @@
 =head1 Name
 
-pragmaqbit::Array - Functions to manipulate arrays.
+qbit::Array - Functions to manipulate arrays.
 
 =cut
 
-package pragmaqbit::Array;
+package qbit::Array;
 
 use strict;
 use warnings;

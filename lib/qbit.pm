@@ -17,15 +17,15 @@ Using this pragma is equivalent:
  use Data::Dumper qw(Dumper);
  use Clone        qw(clone);
 
- use pragmaqbit::Exceptions;
- use pragmaqbit::Log;
- use pragmaqbit::Array;
- use pragmaqbit::Hash;
- use pragmaqbit::GetText;
- use pragmaqbit::Packages;
- use pragmaqbit::StringUtils;
- use pragmaqbit::Date;
- use pragmaqbit::File;
+ use qbit::Exceptions;
+ use qbit::Log;
+ use qbit::Array;
+ use qbit::Hash;
+ use qbit::GetText;
+ use qbit::Packages;
+ use qbit::StringUtils;
+ use qbit::Date;
+ use qbit::File;
 
 =head1 Synopsis
 
@@ -51,23 +51,23 @@ Using this pragma is equivalent:
 
 =over
 
-=item B<L<pragmaqbit::Exceptions>> - realize base classes and functions to use exception in perl;
+=item B<L<qbit::Exceptions>> - realize base classes and functions to use exception in perl;
 
-=item B<L<pragmaqbit::Log>> - there're some function to simple logging;
+=item B<L<qbit::Log>> - there're some function to simple logging;
 
-=item B<L<pragmaqbit::Array>> - there're some function to working with arrays;
+=item B<L<qbit::Array>> - there're some function to working with arrays;
 
-=item B<L<pragmaqbit::Hash>> - there're some function to working with hashes;
+=item B<L<qbit::Hash>> - there're some function to working with hashes;
 
-=item B<L<pragmaqbit::GetText>> - there're some function to internationalization your's software;
+=item B<L<qbit::GetText>> - there're some function to internationalization your's software;
 
-=item B<L<pragmaqbit::Packages>> - there're some function to access package internals;
+=item B<L<qbit::Packages>> - there're some function to access package internals;
 
-=item B<L<pragmaqbit::StringUtils>> - there're some function to working with strings;
+=item B<L<qbit::StringUtils>> - there're some function to working with strings;
 
-=item B<L<pragmaqbit::Date>> - there're some function to working with dates;
+=item B<L<qbit::Date>> - there're some function to working with dates;
 
-=item B<L<pragmaqbit::File>> - there're some function to manage files.
+=item B<L<qbit::File>> - there're some function to manage files.
 
 =back
 
@@ -83,15 +83,15 @@ use Scalar::Util ();
 use Data::Dumper ();
 use Clone        ();
 
-use pragmaqbit::Exceptions  ();
-use pragmaqbit::Log         ();
-use pragmaqbit::Array       ();
-use pragmaqbit::Hash        ();
-use pragmaqbit::GetText     ();
-use pragmaqbit::Packages    ();
-use pragmaqbit::StringUtils ();
-use pragmaqbit::Date        ();
-use pragmaqbit::File        ();
+use qbit::Exceptions  ();
+use qbit::Log         ();
+use qbit::Array       ();
+use qbit::Hash        ();
+use qbit::GetText     ();
+use qbit::Packages    ();
+use qbit::StringUtils ();
+use qbit::Date        ();
+use qbit::File        ();
 
 sub import {
     $^H |= $utf8::hint_bits;
@@ -101,7 +101,7 @@ sub import {
     ${^WARNING_BITS} |= $warnings::DeadBits{'all'};
 
     my $pkg         = caller;
-    my $pkg_sym_tbl = pragmaqbit::Packages::package_sym_table($pkg);
+    my $pkg_sym_tbl = qbit::Packages::package_sym_table($pkg);
 
     {
         no strict 'refs';
@@ -112,7 +112,7 @@ sub import {
     Scalar::Util->export_to_level(
         1, undef,
         @{
-            pragmaqbit::Array::arrays_difference(
+            qbit::Array::arrays_difference(
                 [
                     qw(set_prototype blessed dualvar isweak readonly refaddr reftype tainted weaken isvstring looks_like_number)
                 ],
@@ -125,15 +125,15 @@ sub import {
 
     Clone->export_to_level(1, undef, qw(clone));
 
-    pragmaqbit::Exceptions->export_to_level(1);
-    pragmaqbit::Log->export_to_level(1);
-    pragmaqbit::Array->export_to_level(1);
-    pragmaqbit::Hash->export_to_level(1);
-    pragmaqbit::Packages->export_to_level(1);
-    pragmaqbit::GetText->export_to_level(1);
-    pragmaqbit::StringUtils->export_to_level(1);
-    pragmaqbit::Date->export_to_level(1);
-    pragmaqbit::File->export_to_level(1);
+    qbit::Exceptions->export_to_level(1);
+    qbit::Log->export_to_level(1);
+    qbit::Array->export_to_level(1);
+    qbit::Hash->export_to_level(1);
+    qbit::Packages->export_to_level(1);
+    qbit::GetText->export_to_level(1);
+    qbit::StringUtils->export_to_level(1);
+    qbit::Date->export_to_level(1);
+    qbit::File->export_to_level(1);
 
     @_ = qw(open :std :utf8);
     goto &open::import;

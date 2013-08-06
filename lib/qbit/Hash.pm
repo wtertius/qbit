@@ -1,10 +1,10 @@
 =head1 Name
 
-pragmaqbit::Hash - Functions to manipulate hashes.
+qbit::Hash - Functions to manipulate hashes.
 
 =cut
 
-package pragmaqbit::Hash;
+package qbit::Hash;
 
 use strict;
 use warnings;

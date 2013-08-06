@@ -1,10 +1,10 @@
 =head1 Name
 
-pragmaqbit::Array - Functions to manipulate dates.
+qbit::Array - Functions to manipulate dates.
 
 =cut
 
-package pragmaqbit::Date;
+package qbit::Date;
 
 use strict;
 use warnings;
@@ -16,9 +16,9 @@ use POSIX qw(strftime);
 use Time::Local;
 use Date::Calc qw(Add_Delta_YMDHMS Add_Delta_YM Monday_of_Week Week_of_Year Delta_YMDHMS Delta_Days Days_in_Month);
 
-use pragmaqbit::Exceptions;
-use pragmaqbit::Array;
-use pragmaqbit::GetText;
+use qbit::Exceptions;
+use qbit::Array;
+use qbit::GetText;
 
 BEGIN {
     our (@EXPORT, @EXPORT_OK);
@@ -879,7 +879,7 @@ sub check_date {
 
 =head2 Extending trdate
 
- local $pragmaqbit::Date::TR_HS{'new_type'} = {
+ local $qbit::Date::TR_HS{'new_type'} = {
      '>' => sub {my $dt_norm = shift;     ...Convert $dt_norm to new_type code...},
      '<' => sub {my $dt_new_type = shift; ...Convert $dt_new_type to norm code...};
  };

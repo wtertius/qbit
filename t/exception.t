@@ -108,7 +108,7 @@ sub t6 {
 }
 
 TODO: {
-    local $TODO = 'package pragmaqbit::Exceptions - line 125: $cur_catch->[1]($@);';
+    local $TODO = 'package qbit::Exceptions - line 125: $cur_catch->[1]($@);';
     is(t6(), "catch Test_2+finally", 'throw in block "catch"');
 }
 

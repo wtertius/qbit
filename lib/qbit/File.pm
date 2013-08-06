@@ -1,10 +1,10 @@
 =head1 Name
 
-pragmaqbit::File - Functions to manipulate files.
+qbit::File - Functions to manipulate files.
 
 =cut
 
-package pragmaqbit::File;
+package qbit::File;
 
 use strict;
 use warnings;

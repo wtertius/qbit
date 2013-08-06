@@ -1,10 +1,10 @@
 =head1 Name
 
-pragmaqbit::Packages - Functions to manipulate data in packages.
+qbit::Packages - Functions to manipulate data in packages.
 
 =cut
 
-package pragmaqbit::Packages;
+package qbit::Packages;
 
 use strict;
 use warnings;

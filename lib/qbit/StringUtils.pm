@@ -1,18 +1,18 @@
 
 =head1 Name
 
-pragmaqbit::StringUtils - Functions to manipulate strings.
+qbit::StringUtils - Functions to manipulate strings.
 
 =cut
 
-package pragmaqbit::StringUtils;
+package qbit::StringUtils;
 
 use strict;
 use warnings;
 use utf8;
 
-use pragmaqbit::GetText;
-use pragmaqbit::Exceptions;
+use qbit::GetText;
+use qbit::Exceptions;
 
 use base qw(Exporter);
 

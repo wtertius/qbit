@@ -8,7 +8,7 @@ my $data = <<EOF;
     Тестовый текст для проверки UTF
 EOF
 
-my (undef, $filename) = tempfile('pragmaqbit-file-test_XXXX', SUFFIX => '.txt', TMPDIR => 1, OPEN => 0);
+my (undef, $filename) = tempfile('qbit-file-test_XXXX', SUFFIX => '.txt', TMPDIR => 1, OPEN => 0);
 END {
     unlink($filename) if $filename;
 }

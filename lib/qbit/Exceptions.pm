@@ -1,10 +1,10 @@
 =head1 Name
 
-pragmaqbit::Exceptions - qbit exceptions
+qbit::Exceptions - qbit exceptions
 
 =cut
 
-package pragmaqbit::Exceptions;
+package qbit::Exceptions;
 
 =head1 Synopsis
 
@@ -197,8 +197,8 @@ sub new {
                 args       => [@DB::args],
             }
           )
-          if $package ne 'pragmaqbit::Exceptions'
-              && $subroutine ne 'pragmaqbit::Exceptions::try';
+          if $package ne 'qbit::Exceptions'
+              && $subroutine ne 'qbit::Exceptions::try';
 
         ++$i;
     }
@@ -227,7 +227,7 @@ sub catch {
 }
 
 sub throw {
-    pragmaqbit::Exceptions::throw(shift->new(@_));
+    qbit::Exceptions::throw(shift->new(@_));
 }
 
 sub message {
