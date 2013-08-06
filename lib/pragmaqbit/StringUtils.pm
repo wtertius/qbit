@@ -281,8 +281,16 @@ B<Return value:> string, C<$data> as JSON.
 
 =cut
 
-sub to_json($) {
-    my $res = JSON::XS->new->utf8->allow_nonref->encode(@_);
+sub to_json($;%) {
+    my ($data, %opts) = @_;
+
+    my $res;
+
+    if ($opts{'pretty'}) {
+        $res = JSON::XS->new->utf8->allow_nonref->pretty->encode($data);
+    } else {
+        $res = JSON::XS->new->utf8->allow_nonref->encode($data);
+    }
 
     utf8::decode($res);
 

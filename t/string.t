@@ -1,4 +1,4 @@
-use Test::More tests => 20;
+use Test::More tests => 21;
 
 use qbit;
 
@@ -24,6 +24,24 @@ is(
     to_json({key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}}),
     '{"key2":[],"key4":{},"key1":[0,1],"key3":{"sk2":2,"sk1":1}}',
     'Check struct to JSON'
+  );
+
+is(
+    to_json({key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}}, pretty => TRUE),
+    '{
+   "key2" : [],
+   "key4" : {},
+   "key1" : [
+      0,
+      1
+   ],
+   "key3" : {
+      "sk2" : 2,
+      "sk1" : 1
+   }
+}
+',
+    'Check pretty JSON'
   );
 
 is(format_number(12345678.901200, thousands_sep => ',', decimal_point => '.'),
