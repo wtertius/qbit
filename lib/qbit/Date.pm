@@ -1,3 +1,4 @@
+
 =head1 Name
 
 qbit::Array - Functions to manipulate dates.
@@ -136,7 +137,7 @@ sub trdate {
       unless exists($TR_HS{$iformat}->{'<'});
 
     my $norm_date = $TR_HS{$iformat}->{'<'}($date);
-    return if ($norm_date ~~ [0, 0, 0, 0, 0, 0]);
+    return undef if @$norm_date == 6 && !grep {$_ != 0} @$norm_date;
     $_ = int($_) foreach @$norm_date;
     return $TR_HS{$oformat}->{'>'}($norm_date);
 }
@@ -632,7 +633,7 @@ sub dates_delta_days {
     $fd = trdate(($opts{'iformat'} || 'norm') => 'norm' => $fd);
     $td = trdate(($opts{'iformat'} || 'norm') => 'norm' => $td);
 
-    return Delta_Days(@$fd[0..2], @$td[0..2]);
+    return Delta_Days(@$fd[0 .. 2], @$td[0 .. 2]);
 }
 
 =head2 compare_dates
