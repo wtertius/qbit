@@ -9,6 +9,8 @@ Functions to internatilization application.
 
 More information on L<GNU.org|http://www.gnu.org/software/gettext/manual/gettext.html>.
 
+qbit::GetText use pure perl version of gettext by default. If you need to use XS version, set envirement variable FORCE_GETTEXT_XS to TRUE;
+
 =cut
 
 package qbit::GetText;
@@ -20,8 +22,7 @@ use utf8;
 use base qw(Exporter);
 
 use Locale::Messages;
-Locale::Messages->select_package('gettext_pp')
-  if $ENV{'MOD_PERL'} && $ENV{'MOD_PERL_API_VERSION'} == 2;
+Locale::Messages->select_package($ENV{'FORCE_GETTEXT_XS'} ? 'gettext_xs' : 'gettext_pp');
 
 BEGIN {
     our (@EXPORT, @EXPORT_OK);
