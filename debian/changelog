@@ -1,9 +1,21 @@
-libqbit-perl (0.3) raring; urgency=low
+libqbit-perl (0.4) raring; urgency=low
+
+  * Removed smart mathing in qbit::Date
+
+  * Moved packages from pragmaqbit to qbit
+
+  * Added files to test project with Travis CI
+
+  * to_json() can output pretty JSON
+  * Now it is possible to write:
+  * to_json({ a => 1 }, pretty => TRUE);
+
+  * Version 0.3
 
   * Start using @QBit Dist::Zilla bundle
 
-  * Fixed cyrillic domains in get_domain() Added some tests for
-    get_domain()
+  * Fixed cyrillic domains in get_domain()
+  * Added some tests for get_domain()
 
   * Fixed debian package depends
 
@@ -11,5 +23,5 @@ libqbit-perl (0.3) raring; urgency=low
 
   * Initial commit
 
- -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Sun, 04 Aug 2013 11:29:35 +0400
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Wed, 07 Aug 2013 18:43:47 +0400
 
