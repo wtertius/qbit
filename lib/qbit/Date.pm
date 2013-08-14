@@ -32,7 +32,7 @@ BEGIN {
     @EXPORT_OK = @EXPORT;
 }
 
-my %TR_HS = (
+our %TR_HS = (
     norm => {
         '>' => sub {[@{$_[0]}]},
         '<' => sub {[@{$_[0]}]},
