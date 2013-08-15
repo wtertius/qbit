@@ -1,4 +1,10 @@
-libqbit-perl (0.4) raring; urgency=low
+libqbit-perl (0.5) raring; urgency=low
+
+  * Merge branch 'master' of github.com:QBitFramework/qbit
+
+  * Added use gettext_pp by default
+
+  * Fixed changelog
 
   * Removed smart mathing in qbit::Date
 
@@ -23,5 +29,5 @@ libqbit-perl (0.4) raring; urgency=low
 
   * Initial commit
 
- -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Wed, 07 Aug 2013 18:43:47 +0400
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Sat, 10 Aug 2013 10:13:30 +0400
 
