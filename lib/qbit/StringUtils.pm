@@ -316,8 +316,28 @@ B<Return value:> scalar, perl structure from JSON.
 sub from_json($) {
     my ($text) = @_;
 
+    my $original_text = $text;
+
     utf8::encode($text);
-    return JSON::XS->new->utf8->allow_nonref->decode($text);
+    my $result;
+    eval {
+        $result = JSON::XS->new->utf8->allow_nonref->decode($text);
+    };
+
+    if (!$@) {
+        return $result;
+    } else {
+        $text = '' if !defined $text;
+        throw gettext(
+            "Error in from_json().\n"
+            . "Error message:\n"
+            . "%s\n"
+            . "Input:\n"
+            . "'%s'\n",
+            $@,
+            $original_text,
+        );
+    }
 }
 
 =head2 format_number

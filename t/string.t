@@ -1,4 +1,4 @@
-use Test::More tests => 21;
+use Test::More tests => 23;
 
 use qbit;
 
@@ -13,7 +13,6 @@ is(get_domain('example.com', www => TRUE), 'example.com', 'Check get_domain with
 
 is(get_domain('http://кириллица.рф'), 'кириллица.рф', 'Check get_domain with cyrillic');
 
-# format_number
 is(to_json('test'), '"test"', 'Check string to JSON');
 
 is(to_json(10.5), '10.5', 'Check number to JSON');
@@ -43,6 +42,19 @@ is(
 ',
     'Check pretty JSON'
   );
+
+is_deeply(
+    from_json('{ "text_in_russian" : "Проверка текста на Русском" }'),
+    {text_in_russian => "Проверка текста на Русском"},
+    'from_json() with russian letters',
+);
+
+{
+    my $data;
+    eval {$data = from_json('');};
+
+    like($@, qr/Error message:\nmalformed JSON string/, "from_json() dies with incorrect argument");
+}
 
 is(format_number(12345678.901200, thousands_sep => ',', decimal_point => '.'),
     '12,345,678.9012', 'Checked basic format_number');
