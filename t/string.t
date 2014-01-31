@@ -1,4 +1,4 @@
-use Test::More tests => 23;
+use Test::More tests => 24;
 
 use qbit;
 
@@ -12,6 +12,8 @@ is(get_domain('http://www.example.com/test', www => TRUE), 'www.example.com', 'C
 is(get_domain('example.com', www => TRUE), 'example.com', 'Check get_domain with saved www and no www in URL');
 
 is(get_domain('http://кириллица.рф'), 'кириллица.рф', 'Check get_domain with cyrillic');
+
+is(get_domain('http://кириллица.рф', ascii => TRUE), 'xn--80apaahia1b8c.xn--p1ai', 'Check get_domain with ascii return punycode');
 
 is(to_json('test'), '"test"', 'Check string to JSON');
 
