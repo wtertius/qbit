@@ -1,3 +1,23 @@
+libqbit-perl (0.7) raring; urgency=low
+
+  * Added more pretty and fixed tests
+
+  *  Dist::Zilla bundle @QBbit does not use ppa upload anymore
+
+  * Added test for get_domain() that shows punycode work
+
+  * from_json() in case of error dies with usefull info
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Fri, 25 Apr 2014 16:50:32 +0400
+
+libqbit-perl (0.6) raring; urgency=low
+
+  * Changelog
+
+  * The ability to expand %qbit::Date::TR_HS
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Thu, 15 Aug 2013 10:13:26 +0400
+
 libqbit-perl (0.5) raring; urgency=low
 
   * Merge branch 'master' of github.com:QBitFramework/qbit
