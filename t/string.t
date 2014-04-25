@@ -21,25 +21,25 @@ is(to_json(10.5), '10.5', 'Check number to JSON');
 
 is(to_json(undef), 'null', 'Check undef to JSON');
 
-is(
-    to_json({key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}}),
-    '{"key2":[],"key4":{},"key1":[0,1],"key3":{"sk2":2,"sk1":1}}',
-    'Check struct to JSON'
+is_deeply(
+    from_json(to_json({key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}})),
+    {key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}},
+    'Check JSON encode/decode struct'
   );
 
 is(
     to_json({key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}}, pretty => TRUE),
     '{
-   "key2" : [],
-   "key4" : {},
    "key1" : [
       0,
       1
    ],
+   "key2" : [],
    "key3" : {
-      "sk2" : 2,
-      "sk1" : 1
-   }
+      "sk1" : 1,
+      "sk2" : 2
+   },
+   "key4" : {}
 }
 ',
     'Check pretty JSON'

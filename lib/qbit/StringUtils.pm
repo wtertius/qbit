@@ -287,7 +287,7 @@ sub to_json($;%) {
     my $res;
 
     if ($opts{'pretty'}) {
-        $res = JSON::XS->new->utf8->allow_nonref->pretty->encode($data);
+        $res = JSON::XS->new->utf8->allow_nonref->pretty->canonical->encode($data);
     } else {
         $res = JSON::XS->new->utf8->allow_nonref->encode($data);
     }
