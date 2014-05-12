@@ -14,6 +14,7 @@ use utf8;
 use base qw(Exporter);
 
 use Data::Dumper;
+require qbit::StringUtils;
 
 BEGIN {
     our (@EXPORT, @EXPORT_OK);
@@ -156,7 +157,7 @@ sub require_class {
     $class = "$class.pm";
     $class =~ s/::/\//g;
 
-    return require($class) || throw $!;
+    return require($class) || die die "Cannot requre file \"$class\": " . qbit::StringUtils::fix_utf($!);
 }
 
 1;

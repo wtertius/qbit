@@ -1,4 +1,4 @@
-use Test::More tests => 24;
+use Test::More tests => 26;
 
 use qbit;
 
@@ -89,3 +89,10 @@ is(format_number(9.87165876490036e-05, thousands_sep => ',', decimal_point => '.
 
 is(format_number('3.12259223215332e-05', thousands_sep => ',', decimal_point => '.', precision => 8),
     '0.00003123', 'Checked format_number with very small number as string');
+
+
+is(fix_utf('Тест'), 'Тест', 'Checking fix utf');
+
+my $str = 'Тест';
+utf8::encode($str);
+is(fix_utf($str), 'Тест', 'Checking fix utf');

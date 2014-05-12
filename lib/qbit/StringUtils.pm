@@ -26,7 +26,7 @@ BEGIN {
     our (@EXPORT, @EXPORT_OK);
 
     @EXPORT = qw(
-      html_encode html_decode uri_escape check_email idn_to_unicode get_domain to_json from_json format_number
+      html_encode html_decode uri_escape check_email idn_to_unicode get_domain to_json from_json format_number fix_utf
       );
     @EXPORT_OK = @EXPORT;
 }
@@ -320,23 +320,14 @@ sub from_json($) {
 
     utf8::encode($text);
     my $result;
-    eval {
-        $result = JSON::XS->new->utf8->allow_nonref->decode($text);
-    };
+    eval {$result = JSON::XS->new->utf8->allow_nonref->decode($text);};
 
     if (!$@) {
         return $result;
     } else {
         $text = '' if !defined $text;
-        throw gettext(
-            "Error in from_json().\n"
-            . "Error message:\n"
-            . "%s\n"
-            . "Input:\n"
-            . "'%s'\n",
-            $@,
-            $original_text,
-        );
+        throw gettext("Error in from_json().\n" . "Error message:\n" . "%s\n" . "Input:\n" . "'%s'\n", $@,
+            $original_text,);
     }
 }
 
@@ -418,6 +409,32 @@ sub format_number($%) {
     }
 
     return "$int$frac";
+}
+
+=head2 fix_utf
+
+B<Arguments:>
+
+=over
+
+=item
+
+B<$string> - string.
+
+=back
+
+Convert $string to perl utf8 string if it is without utf8 flag;
+
+B<Return value:> string with utf8 flag.
+
+=cut
+
+sub fix_utf {
+    my ($string) = @_;
+
+    utf8::decode($string) unless utf8::is_utf8($string);
+
+    return $string;
 }
 
 1;
