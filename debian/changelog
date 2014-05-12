@@ -1,3 +1,11 @@
+libqbit-perl (0.8) raring; urgency=low
+
+  * Fixed error messages
+
+  * Added require_class function
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Mon, 12 May 2014 21:23:16 +0400
+
 libqbit-perl (0.7) raring; urgency=low
 
   * Added more pretty and fixed tests
