@@ -1,3 +1,5 @@
+package Exception::BadArguments::InvalidJSON;
+use base qw(Exception::BadArguments);
 
 =head1 Name
 
@@ -326,7 +328,9 @@ sub from_json($) {
         return $result;
     } else {
         $text = '' if !defined $text;
-        throw gettext("Error in from_json().\n" . "Error message:\n" . "%s\n" . "Input:\n" . "'%s'\n", $@,
+        my ($error) = ($@ =~ m'(.+) at /');
+        $error ||= $@;
+        throw Exception::BadArguments::InvalidJSON gettext("Error in from_json: %s\n" . "Input:\n" . "'%s'\n", $error,
             $original_text,);
     }
 }

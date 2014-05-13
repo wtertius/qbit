@@ -13,7 +13,8 @@ is(get_domain('example.com', www => TRUE), 'example.com', 'Check get_domain with
 
 is(get_domain('http://кириллица.рф'), 'кириллица.рф', 'Check get_domain with cyrillic');
 
-is(get_domain('http://кириллица.рф', ascii => TRUE), 'xn--80apaahia1b8c.xn--p1ai', 'Check get_domain with ascii return punycode');
+is(get_domain('http://кириллица.рф', ascii => TRUE),
+    'xn--80apaahia1b8c.xn--p1ai', 'Check get_domain with ascii return punycode');
 
 is(to_json('test'), '"test"', 'Check string to JSON');
 
@@ -25,7 +26,7 @@ is_deeply(
     from_json(to_json({key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}})),
     {key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}},
     'Check JSON encode/decode struct'
-  );
+);
 
 is(
     to_json({key1 => [0, 1], key2 => [], key3 => {sk1 => 1, sk2 => 2}, key4 => {}}, pretty => TRUE),
@@ -55,7 +56,7 @@ is_deeply(
     my $data;
     eval {$data = from_json('');};
 
-    like($@, qr/Error message:\nmalformed JSON string/, "from_json() dies with incorrect argument");
+    like($@, qr/Error in from_json: malformed JSON string/, "from_json() dies with incorrect argument");
 }
 
 is(format_number(12345678.901200, thousands_sep => ',', decimal_point => '.'),
@@ -89,7 +90,6 @@ is(format_number(9.87165876490036e-05, thousands_sep => ',', decimal_point => '.
 
 is(format_number('3.12259223215332e-05', thousands_sep => ',', decimal_point => '.', precision => 8),
     '0.00003123', 'Checked format_number with very small number as string');
-
 
 is(fix_utf('Тест'), 'Тест', 'Checking fix utf');
 
