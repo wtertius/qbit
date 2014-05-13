@@ -1,3 +1,11 @@
+libqbit-perl (0.9) raring; urgency=low
+
+  * Fix test to the code change.
+
+  * Throw simple message from from_json sub.
+
+ -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Tue, 13 May 2014 15:25:43 +0400
+
 libqbit-perl (0.8) raring; urgency=low
 
   * Fixed error messages
