@@ -1,4 +1,4 @@
-use Test::More tests => 26;
+use Test::More tests => 29;
 
 use qbit;
 
@@ -90,6 +90,15 @@ is(format_number(9.87165876490036e-05, thousands_sep => ',', decimal_point => '.
 
 is(format_number('3.12259223215332e-05', thousands_sep => ',', decimal_point => '.', precision => 8),
     '0.00003123', 'Checked format_number with very small number as string');
+
+is(format_number('-2533432.12259', thousands_sep => ' ', decimal_point => ',', precision => 2),
+    '-2 533 432,12', 'Checked format_number with negative number as string');
+
+is(format_number(-2533432.12259, thousands_sep => ' ', decimal_point => ',', precision => 2),
+    '-2 533 432,12', 'Checked format_number with negative number');
+
+is(format_number('-25.12259e+12', thousands_sep => ',', decimal_point => '.', precision => 4),
+    '-25,122,590,000,000.0000', 'Checked format_number with negative small number as string');
 
 is(fix_utf('Тест'), 'Тест', 'Checking fix utf');
 
