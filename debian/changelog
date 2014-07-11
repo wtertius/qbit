@@ -1,3 +1,9 @@
+libqbit-perl (1.0) raring; urgency=low
+
+  * fix sub format_number
+
+ -- Ivan Bessarabov <ivan@bessarabov.ru>  Fri, 11 Jul 2014 15:00:38 +0400
+
 libqbit-perl (0.9) raring; urgency=low
 
   * Fix test to the code change.
