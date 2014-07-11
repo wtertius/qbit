@@ -386,9 +386,9 @@ sub format_number($%) {
         }
     }
 
-    my ($int, $frac_zero, $frac) =
-      $number =~ /^(\d+)(?:[^\d](0*)(\d*))?$/
-      ? (int($1), $2, int($3 || 0))
+    my ($minus, $int, $frac_zero, $frac) =
+      $number =~ /^(-?)(\d+)(?:[^\d](0*)(\d*))?$/
+      ? ($1, int($2), $3, int($4 || 0))
       : throw Exception::BadArguments gettext('Invalid number "%s"', $number);
 
     $frac_zero = '' unless defined($frac_zero);
@@ -412,7 +412,7 @@ sub format_number($%) {
         $int = reverse($int);
     }
 
-    return "$int$frac";
+    return "$minus$int$frac";
 }
 
 =head2 fix_utf
