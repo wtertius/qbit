@@ -390,7 +390,7 @@ sub format_number($%) {
         }
     }
 
-    setlocale(LC_NUMERIC, $old_locale);
+    setlocale(LC_NUMERIC, $old_locale) if $old_locale;
 
     my ($minus, $int, $frac_zero, $frac) =
       $number =~ /^(-?)(\d+)(?:[^\d](0*)(\d*))?$/
