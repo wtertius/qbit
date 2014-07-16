@@ -1,3 +1,11 @@
+libqbit-perl (1.2) raring; urgency=low
+
+  * lost check
+
+  * fix locale
+
+ -- Ivan Bessarabov <ivan@bessarabov.ru>  Wed, 16 Jul 2014 13:07:38 +0400
+
 libqbit-perl (1.1) raring; urgency=low
 
   * No changes
