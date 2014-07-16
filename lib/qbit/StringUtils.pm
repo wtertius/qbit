@@ -374,7 +374,11 @@ sub format_number($%) {
     $number = sprintf("%.${fmt_precision}f", $number)
       if $number =~ /^(-?[\d.]+)e([+-]\d+)$/;    # Convert exponent notation
 
-    setlocale(LC_NUMERIC, "$ENV{'LC_ALL'}.utf8") if defined($ENV{'LC_ALL'});
+    my $old_locale;
+    if (defined($ENV{'LC_ALL'})) {
+        $old_locale = setlocale(LC_NUMERIC);
+        setlocale(LC_NUMERIC, "$ENV{'LC_ALL'}.utf8");
+    }
 
     my $localeconv = localeconv();
     my $half       = 0.50000000000008;
@@ -385,6 +389,8 @@ sub format_number($%) {
             utf8::decode($opts{$opt});
         }
     }
+
+    setlocale(LC_NUMERIC, $old_locale) if $old_locale;
 
     my ($minus, $int, $frac_zero, $frac) =
       $number =~ /^(-?)(\d+)(?:[^\d](0*)(\d*))?$/
