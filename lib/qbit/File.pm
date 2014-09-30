@@ -92,6 +92,8 @@ B<%opts> - hash, additional arguments:
 
 B<binary> - boolean, binary ? C<binmode($fh)> : C<binmode($fh, ':utf8')>.
 
+B<append> - boolean
+
 =back
 
 =back
@@ -101,7 +103,9 @@ B<binary> - boolean, binary ? C<binmode($fh)> : C<binmode($fh, ':utf8')>.
 sub writefile($$;%) {
     my ($filename, $data, %opts) = @_;
 
-    open(my $fh, '>', $filename) || die "Cannot open file \"$filename\" for write: " . qbit::StringUtils::fix_utf($!);
+    my $mode = $opts{'append'} ? '>>' : '>';
+
+    open(my $fh, $mode, $filename) || die "Cannot open file \"$filename\" for write: " . qbit::StringUtils::fix_utf($!);
     $opts{'binary'} ? binmode($fh) : binmode($fh, ':utf8');
     print $fh $data;
     close($fh);
