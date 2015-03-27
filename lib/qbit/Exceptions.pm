@@ -1,3 +1,4 @@
+
 =head1 Name
 
 qbit::Exceptions - qbit exceptions
@@ -211,7 +212,6 @@ sub new {
             ? (text => $text->{'text'}, parent => $text)
             : (text => $text)
         ),
-        text      => $text,
         filename  => $caller->{'filename'},
         package   => $caller->{'package'},
         line      => $caller->{'line'},
