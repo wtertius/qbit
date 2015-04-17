@@ -1,16 +1,16 @@
-libqbit-perl (1.4) raring; urgency=low
+libtertiusqbit-perl (1.4) raring; urgency=low
 
   * deleted old code
 
  -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Mon, 30 Mar 2015 15:20:56 +0400
 
-libqbit-perl (1.3) raring; urgency=low
+libtertiusqbit-perl (1.3) raring; urgency=low
 
   * writefile($filename => $content, append => TRUE);
 
  -- Ivan Bessarabov <ivan@bessarabov.ru>  Tue, 30 Sep 2014 16:02:10 +0400
 
-libqbit-perl (1.2) raring; urgency=low
+libtertiusqbit-perl (1.2) raring; urgency=low
 
   * lost check
 
@@ -18,19 +18,19 @@ libqbit-perl (1.2) raring; urgency=low
 
  -- Ivan Bessarabov <ivan@bessarabov.ru>  Wed, 16 Jul 2014 13:07:38 +0400
 
-libqbit-perl (1.1) raring; urgency=low
+libtertiusqbit-perl (1.1) raring; urgency=low
 
   * No changes
 
  -- Ivan Bessarabov <ivan@bessarabov.ru>  Fri, 11 Jul 2014 16:10:17 +0400
 
-libqbit-perl (1.0) raring; urgency=low
+libtertiusqbit-perl (1.0) raring; urgency=low
 
   * fix sub format_number
 
  -- Ivan Bessarabov <ivan@bessarabov.ru>  Fri, 11 Jul 2014 15:00:38 +0400
 
-libqbit-perl (0.9) raring; urgency=low
+libtertiusqbit-perl (0.9) raring; urgency=low
 
   * Fix test to the code change.
 
@@ -38,7 +38,7 @@ libqbit-perl (0.9) raring; urgency=low
 
  -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Tue, 13 May 2014 15:25:43 +0400
 
-libqbit-perl (0.8) raring; urgency=low
+libtertiusqbit-perl (0.8) raring; urgency=low
 
   * Fixed error messages
 
@@ -46,7 +46,7 @@ libqbit-perl (0.8) raring; urgency=low
 
  -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Mon, 12 May 2014 21:23:16 +0400
 
-libqbit-perl (0.7) raring; urgency=low
+libtertiusqbit-perl (0.7) raring; urgency=low
 
   * Added more pretty and fixed tests
 
@@ -58,25 +58,25 @@ libqbit-perl (0.7) raring; urgency=low
 
  -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Fri, 25 Apr 2014 16:50:32 +0400
 
-libqbit-perl (0.6) raring; urgency=low
+libtertiusqbit-perl (0.6) raring; urgency=low
 
   * Changelog
 
-  * The ability to expand %qbit::Date::TR_HS
+  * The ability to expand %tertiusqbit::Date::TR_HS
 
  -- Sergei Svistunov <sergei-svistunov@yandex.ru>  Thu, 15 Aug 2013 10:13:26 +0400
 
-libqbit-perl (0.5) raring; urgency=low
+libtertiusqbit-perl (0.5) raring; urgency=low
 
-  * Merge branch 'master' of github.com:QBitFramework/qbit
+  * Merge branch 'master' of github.com:TertiusQBitFramework/tertiusqbit
 
   * Added use gettext_pp by default
 
   * Fixed changelog
 
-  * Removed smart mathing in qbit::Date
+  * Removed smart mathing in tertiusqbit::Date
 
-  * Moved packages from pragmaqbit to qbit
+  * Moved packages from pragmatertiusqbit to tertiusqbit
 
   * Added files to test project with Travis CI
 
@@ -86,7 +86,7 @@ libqbit-perl (0.5) raring; urgency=low
 
   * Version 0.3
 
-  * Start using @QBit Dist::Zilla bundle
+  * Start using @TertiusQBit Dist::Zilla bundle
 
   * Fixed cyrillic domains in get_domain()
   * Added some tests for get_domain()
