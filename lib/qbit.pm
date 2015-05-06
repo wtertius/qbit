@@ -26,6 +26,7 @@ Using this pragma is equivalent:
  use qbit::StringUtils;
  use qbit::Date;
  use qbit::File;
+ use qbit::Host;
 
 =head1 Synopsis
 
@@ -69,6 +70,8 @@ Using this pragma is equivalent:
 
 =item B<L<qbit::File>> - there're some function to manage files.
 
+=item B<L<qbit::Host>> - there're some function to get info about host.
+
 =back
 
 =cut
@@ -92,6 +95,7 @@ use qbit::Packages    ();
 use qbit::StringUtils ();
 use qbit::Date        ();
 use qbit::File        ();
+use qbit::Host        ();
 
 sub import {
     $^H |= $utf8::hint_bits;
@@ -134,6 +138,7 @@ sub import {
     qbit::StringUtils->export_to_level(1);
     qbit::Date->export_to_level(1);
     qbit::File->export_to_level(1);
+    qbit::Host->export_to_level(1);
 
     @_ = qw(open :std :utf8);
     goto &open::import;
