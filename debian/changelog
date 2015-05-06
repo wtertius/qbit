@@ -1,3 +1,9 @@
+libtertiusqbit-perl (1.6) raring; urgency=low
+
+  * Add tools for host info getting.
+
+ -- Dmitry Lukiyanchuk <tertius@yandex-team.ru>  Wed, 06 May 2015 23:36:29 +0300
+
 libtertiusqbit-perl (1.5) raring; urgency=low
 
   * Rename debian package
